@@ -1,0 +1,72 @@
+%CONTEUDO DO ARQUIVO TESE.TEX, NOSSO ARQUIVO PRINCIPAL
+\documentclass[fleqn, a4paper, 12pt]{report}
+\setlength{\mathindent}{0pt}
+
+\input{custom/custom}
+
+% %\listfiles
+ \onehalfspacing %é pra ser o comando do espaçamento 1.5
+ \setlength{\parindent}{1.5cm}
+ \setlength{\hoffset}{-0.5cm}
+ \setlength{\voffset}{-1cm}
+ \setlength{\textwidth}{16cm}
+ \setlength{\textheight}{23.5cm}
+ 
+
+\begin{document}
+
+\onehalfspacing
+ \newgeometry{
+ a4paper,
+ top=3cm,
+ bottom=1cm
+ }
+\pagenumbering{gobble}
+
+\include{main/capa}
+\include{main/folharosto}
+%\includepdf[pages={1}]{fichacatalografica.pdf} %fornecida pela biblioteca
+%\includepdf[pages={1}]{folhadeaprovacao.pdf} %gerado pelo tex folhaaprovacao.tex assinado e escaneado
+
+\include{main/folhaaprovacao}
+\include{main/dedicatoria}
+\include{main/epigrafo}
+\include{main/agradecimentos}
+\include{main/resumo}
+
+\listofilustr
+\listoffigs
+\listofcods
+\newpage
+\renewcommand{\listtablename}{\hfill \bf LISTA DE TABELAS\hfill}
+\listoftables
+\newpage
+\renewcommand
+\tableofcontents
+
+ \newgeometry{
+ a4paper,
+ top=3cm,
+ bottom=3cm
+ }
+
+ \pagenumbering{arabic}
+% \clearpage
+\setcounter{page}{12}
+\include{chapters/introducao}
+\include{chapters/cap1} 
+\include{chapters/cap2} 
+\include{chapters/cap3} 
+%\include{cap4} % Ativar caso queira o cap 4
+\include{chapters/conclusao}
+
+
+\appendix 
+\renewcommand{\thechapter}{ANEXO A}
+\include{ApendixA} 
+\renewcommand{\thechapter}{APÊNDICE B}
+\renewcommand{\thechapter}{APÊNDICE C}
+  \bibliography{refs}
+  \addcontentsline{toc}{chapter}{REFERÊNCIAS}
+
+\end{document}  

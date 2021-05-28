@@ -1,0 +1,194 @@
+\newenvironment{figs}
+{%\vspace{0pt}
+\begin{figure}[htb]
+}{%\vspace{0pt}
+\end{figure}}
+
+\newenvironment{fig}
+{
+%\vspace{0pt}
+\begin{figure}[h!tb]
+%\rule[0pt]{\textwidth}{0.2pt}
+%\vspace{0pt}
+}{
+%\vspace{5pt}
+%\rule[0pt]{\textwidth}{0.2pt}
+\end{figure}}
+
+\newenvironment{hfig}
+{\vspace{0pt}
+\begin{figure}[h]
+%\rule[0pt]{\textwidth}{0.2pt}
+\vspace{0pt}
+}{
+%\vspace{5pt}
+%\rule[0pt]{\textwidth}{0.2pt}
+\end{figure}}
+
+\newcommand{\pspic}[2]
+{ \begin{center}
+ \epsfysize=#2 \leavevmode \epsfbox{\figdir/#1}
+ \end{center}}
+
+\newcommand{\pspicy}[2]
+{ \begin{center}
+ \epsfysize=#2 \leavevmode%
+ \epsfbox{\figdir/#1}%
+ \end{center}}
+
+\newcommand{\pspicxx}[2]
+{ \begin{center}
+ \epsfxsize=#2 \leavevmode%
+ \epsfbox{\figdir/#1}%
+\end{center}}
+
+\newcommand{\pspicyAB}[3]
+{\begin{center}
+\leavevmode
+\centerline{
+\hfill{\epsfysize=#3\epsfbox{\figdir/#1}}\hfill{\epsfysize=#3\epsfbox{\figdir/#2}}\hfill}
+\end{center}}
+
+\newcommand{\pspicxAB}[3]
+{\begin{center}
+\leavevmode
+\centerline{
+\hfill{\epsfxsize=#3\epsfbox{\figdir/#1}}\hfill{\epsfxsize=#3\epsfbox{\figdir/#2}}\hfill}
+\end{center}}
+
+\newcommand{\pspicABN}[3]
+{\begin{center}\leavevmode
+\centerline{{\epsfysize=#3\epsfbox{\figdir/#1}}{\epsfysize=#3\epsfbox{\figdir/#2}}}
+\end{center}}
+
+
+\newcommand{\pspicx}[2]
+{ \begin{center}
+ \epsfxsize=#2 \leavevmode \epsfbox{\figdir/#1}
+ \end{center}}
+
+\newcommand{\pspicAB}[3]
+{\begin{center}\leavevmode
+\centerline{
+\hfill{\epsfxsize=#3\epsfbox{\figdir/#1}}\hfill{\epsfxsize=#3\epsfbox{\figdir/#2}}\hfill}
+\end{center}}
+
+\newcommand{\pspicIIx}[3]
+{\begin{center}
+{\leavevmode
+        \epsfxsize=#3 \epsfbox{\figdir/#1}
+        \epsfxsize=#3 \epsfbox{\figdir/#2}
+}
+ \end{center}}
+
+\newcommand{\pspicIIxx}[4]
+{\begin{center}\leavevmode
+\centerline{
+\hfill{\epsfxsize=#2 \epsfbox{\figdir/#1}}
+\hfill{\epsfxsize=#4 \epsfbox{\figdir/#3}}\hfill
+}
+ \end{center}}
+
+\newcommand{\pspicIIy}[3]
+{\begin{center}\leavevmode
+\centerline{
+\hfill{\epsfysize=#3 \epsfbox{\figdir/#1}}
+\hfill{\epsfysize=#3 \epsfbox{\figdir/#2}}\hfill
+}
+ \end{center}}
+
+\newcommand{\pspicIIxxa}[4]
+{\begin{center}
+{\leavevmode
+        \epsfxsize=#2 \epsfbox{\figdir/#1}
+        \epsfxsize=#4 \epsfbox{\figdir/#3}
+}
+ \end{center}}
+
+
+\newcommand{\pspicIIIH}[4]
+{\begin{center}\leavevmode
+\centerline{
+%\hfil
+{\epsfxsize=#4 \epsfbox{\figdir/#1}}
+\hfil{\epsfxsize=#4 \epsfbox{\figdir/#2}}
+\hfil{\epsfxsize=#4 \epsfbox{\figdir/#3}}
+%\hfil
+}
+\end{center}}
+
+\newcommand{\pspicIVH}[5]
+{\begin{center}\leavevmode
+\centerline{
+\hfil
+{\epsfxsize=#5 \epsfbox{\figdir/#1}}
+\hfil{\epsfxsize=#5 \epsfbox{\figdir/#2}}
+\hfil{\epsfxsize=#5 \epsfbox{\figdir/#3}}
+\hfil{\epsfxsize=#5 \epsfbox{\figdir/#3}}
+\hfil
+}
+\end{center}}
+
+\newcommand{\pspicVIIIH}[9]
+{\begin{center}\leavevmode
+\centerline{
+%\hfil
+{\epsfxsize=#9 \epsfbox{\figdir/#1}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#2}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#3}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#4}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#5}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#6}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#7}}
+\hfil{\epsfxsize=#9 \epsfbox{\figdir/#8}}
+%\hfil
+}
+\end{center}}
+
+\newcommand{\pspicV}[6]
+{\begin{center}\leavevmode
+\centerline{
+{\epsfxsize=#6 \epsfbox{\figdir/#1}}
+\hfil{\epsfxsize=#6 \epsfbox{\figdir/#2}}
+\hfil{\epsfxsize=#6 \epsfbox{\figdir/#3}}
+\hfil{\epsfxsize=#6 \epsfbox{\figdir/#4}}
+\hfil{\epsfxsize=#6 \epsfbox{\figdir/#5}}
+}
+\end{center}}
+
+\newcommand{\pspicVI}[7]
+{\begin{center}\leavevmode
+\centerline{
+%\hfil
+{\epsfxsize=#7 \epsfbox{\figdir/#1}}
+\hfil{\epsfxsize=#7 \epsfbox{\figdir/#2}}
+\hfil{\epsfxsize=#7 \epsfbox{\figdir/#3}}
+\hfil{\epsfxsize=#7 \epsfbox{\figdir/#4}}
+\hfil{\epsfxsize=#7 \epsfbox{\figdir/#5}}
+\hfil{\epsfxsize=#7 \epsfbox{\figdir/#6}}
+%\hfil
+}
+\end{center}}
+
+
+\newcommand{\pspicIIIHa}[4]
+{\begin{center}
+{\leavevmode
+        \epsfxsize=#4 \epsfbox{\figdir/#1}
+        \epsfxsize=#4 \epsfbox{\figdir/#2}
+        \epsfxsize=#4 \epsfbox{\figdir/#3}
+}
+ \end{center}}
+
+
+
+
+
+
+
+
+
+
+
+
+

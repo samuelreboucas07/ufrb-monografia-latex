@@ -1,0 +1,568 @@
+\usepackage{latexsym}
+
+\usepackage[utf8]{inputenc}
+\usepackage{pslatex}
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[T1]{fontenc}
+
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ top=3cm,
+ bottom=3cm
+ }
+
+
+
+\usepackage{boxhandler}
+
+
+\usepackage{float}
+\usepackage{threeparttable}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{%
+   labelsep=newline,
+   justification=raggedright,
+   labelfont=md,
+   figurewithin=none,
+  singlelinecheck=off
+}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\DeclareCaptionLabelSeparator{dash}{\;\texttwelveudash\;}
+%\DeclareCaptionLabelFormat{nonumber}{}
+
+\captionsetup{singlelinecheck = false,justification=centering, font=normalsize,textfont=bf, labelsep=dash,labelfont=bf}
+\usepackage{newfloat}
+\usepackage{titletoc}
+\usepackage[titles]{tocloft}
+
+\usepackage{tocbasic}
+
+
+\DeclareFloatingEnvironment[
+fileext=loq,
+listname={Lista de Quadros},
+within=none
+]{quadro}
+
+\newlistof{ilustr}{loil}{\hfill \bf LISTA DE ILUSTRAÇÕES\hfill}
+\makeatletter
+% Change the file extension of both lot and lof
+\def\ext@quadro{loil}
+% Store the original `\thefigure` and `\thetable`
+\let\tohe@thequadro\thequadro
+% Redefine them to contain a "dummy" `\tohe@list...`
+\def\thequadro{\tohe@listquad\tohe@thequadro}
+% Make the two dummy commands truly dummy
+\let\tohe@listquad\relax
+% Store the original `\listoffigtab`
+\let\tohe@listofilustr\listofilustr
+% Redefine it in such a way that the dummy commands insert "Fig." or "Tab." respectively
+\def\listofilustr{%
+  \begingroup
+  \def\tohe@listquad{Quadro ~}
+  \tohe@listofilustr
+  \endgroup  
+}
+\makeatother
+
+\newlistof{figs}{lofig}{\hfill \bf LISTA DE FIGURAS\hfill}
+\makeatletter
+% Change the file extension of both lot and lof
+\def\ext@figure{lofig}
+% Store the original `\thefigure` and `\thetable`
+\let\tohe@thefigure\thefigure
+% Redefine them to contain a "dummy" `\tohe@list...`
+\def\thefigure{\tohe@listfig\tohe@thefigure}
+% Make the two dummy commands truly dummy
+\let\tohe@listfig\relax
+% Store the original `\listoffigtab`
+\let\tohe@listoffigs\listoffigs
+% Redefine it in such a way that the dummy commands insert "Fig." or "Tab." respectively
+\def\listoffigs{%
+  \begingroup
+  \def\tohe@listfig{Figura ~}
+  \tohe@listoffigs
+  \endgroup  
+}
+\makeatother
+
+\DeclareFloatingEnvironment[
+fileext=loc,
+name=Código,
+listname={Lista de Códigos},
+within=none
+]{codigo}
+
+
+\newlistof{cods}{locods}{\hfill \bf LISTA DE CÓDIGOS\hfill}
+\makeatletter
+% Change the file extension of both lot and lof
+\def\ext@codigo{locods}
+% Store the original `\thefigure` and `\thetable`
+\let\tohe@thecodigo\thecodigo
+% Redefine them to contain a "dummy" `\tohe@list...`
+\def\thecodigo{\tohe@listcod\tohe@thecodigo}
+% Make the two dummy commands truly dummy
+\let\tohe@listcod\relax
+% Store the original `\listoffigtab`
+\let\tohe@listofcods\listofcods
+% Redefine it in such a way that the dummy commands insert "Fig." or "Tab." respectively
+\def\listofcods{%
+  \begingroup
+  \def\tohe@listcod{Código ~}
+  \tohe@listofcods
+  \endgroup  
+}
+\makeatother
+
+
+
+
+\newcommand*\MeasuredFigureLabel[1]{
+    
+}
+
+\newcommand{\BFIG}[1]{ 
+\captionsetup{singlelinecheck=off,labelfont=md,justification=raggedright}
+
+\begin{figure}[H]\centering\begin{measuredfigure}\caption{\textmd{#1}}\hspace{-0.18cm}\centering\begin{tabular}{l}}
+\newcommand{\EFIG}[2]{\\ {\footnotesize #1}\end{tabular}\end{measuredfigure}\addtocounter{figure}{-1}\phantomcaption\label{#2}\end{figure}}
+
+\newcommand{\BQUAD}[1]{
+\captionsetup{singlelinecheck=off,labelfont=md,justification=raggedright}
+\begin{quadro}[H]\centering\begin{measuredfigure}\hspace{-0.18cm}\caption{\textmd{#1}}\centering\begin{tabular}{l}}
+\newcommand{\EQUAD}[2]{\\ {\footnotesize #1}\end{tabular}\end{measuredfigure}\addtocounter{quadro}{-1}\phantomcaption\label{#2}\end{quadro}}
+
+\newcommand{\BTAB}[1]{
+\captionsetup{singlelinecheck=off,labelfont=md,justification=raggedright}
+\begin{table}[H]\centering\begin{measuredfigure}\hspace{-0.18cm}\caption{\textmd{#1}}\centering\begin{tabular}{l}}
+\newcommand{\ETAB}[2]{\\{\footnotesize#1}\end{tabular}\end{measuredfigure}\addtocounter{table}{-1}\phantomcaption\label{#2}\end{table}}
+
+\newcommand{\BCOD}[1]{
+\begin{center}
+\begin{minipage}{0.78\textwidth}
+\captionsetup{singlelinecheck=off,labelfont=md,justification=raggedright}
+\begin{codigo}[H]\caption{\textmd{#1}}\tiny}
+\newcommand{\ECOD}[2]{\label{#2}\vspace{3pt}{\footnotesize#1}\end{codigo}\end{minipage}\end{center}}
+
+%Meus comandos
+
+
+\usepackage{tgpagella}
+%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[amsmath]{ntheorem}
+\usepackage[backgroundcolor=yellow!50,portuguese]{todonotes}
+\newcommand{\tdl}[1]{\todo[inline]{\tiny #1}}
+\usepackage[cache=false,newfloat]{minted}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,arrows,automata}
+\usepackage{wrapfig}
+\usepackage[final]{pdfpages}
+\usepackage[pdftex, hidelinks]{hyperref}
+
+\usepackage[portuguese,linesnumbered]{algorithm2e}
+\usepackage{placeins}
+%\usepackage{showlabels}
+\usepackage{units}
+\usepackage[alf]{abntex2cite}
+%\usepackage[style=abnt,backend=biber]{biblatex}
+
+
+
+\renewcommand\bibname{Reference}
+
+\usepackage{pdfpages}
+\usepackage{setspace}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+\usepackage{parskip}
+\parskip=0.5pt
+
+\newcommand{\argmin}[1]{\underset{#1}{\operatornamewithlimits{argmin}}\;}
+\newcommand{\mini}[1]{\underset{#1}{\operatornamewithlimits{min}}\;}
+
+\newcolumntype{R}{>{\columncolor{red!20}}r}
+\newcolumntype{G}{>{\columncolor{green!20}}r}
+\newcolumntype{B}{>{\columncolor{blue!20}}r}
+\newcolumntype{Y}{>{\columncolor{yellow!20}}r}
+\newcolumntype{K}{>{\columncolor{gray!20}}r}
+
+\SetKwInput{Recebe}{Recebe}
+\SetKwInput{Acao}{Ação}
+\SetKwInput{Viz}{Vizibilidade}
+\SetKwBlock{Inicio}{início}{fim}
+\SetKw{Novo}{novo}
+\SetKw{Deste}{deste}
+\SetKw{Ou}{or}
+\SetKw{Como}{como}
+\SetKw{Ate}{até}
+\SetKw{AlgE}{e}
+\SetKw{AlgOu}{ou}
+\SetKw{AlgNao}{não}
+\SetKw{Falso}{falso}
+\SetKw{Thread}{thread}
+\SetKw{Verdadeiro}{verdadeiro}
+\SetKwFunction{PL}{Problema\_Linear}
+\SetKwFunction{TL}{Tamanho\_da\_Lista}
+\SetKwFor{ParaCada}{para cada}{faça}{fim}
+\SetKwFor{Enquanto}{enquanto}{faça}{fim}
+\SetKwFor{Para}{para}{faça}{fim}
+\SetKwSwitch{Selecione}{Caso}{Outros}{selecione}{faça}{caso}{outros}{fim da seleção}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\CM}[1]{\CommentSty{\# #1 \#}}
+\newcommand{\ins}[2]{#1 \longleftarrow #1 \cup \lbrace #2 \rbrace}
+
+\definecolor{light-gray}{gray}{0.8}
+
+
+\usepackage{latexsym}
+\usepackage{theorem}
+\usepackage{times}
+\usepackage{amscd}
+%\usepackage{epsf}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage[all]{xy}
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+%\usepackage{setspace}
+\usepackage{varioref}
+\usepackage{color}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage[normalem]{ulem}
+%\usepackage{tabularx}
+%% \usepackage[light,timestamp]{draftcopy}
+%% \draftcopySetGrey{0.9}
+%% \usepackage[rflt]{floatflt}
+%\usepackage[a4paper]{geometry}
+\usepackage{ulem}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{textcomp}
+% %\usepackage{makeidx}
+% %\usepackage{algorithm}
+% \usepackage{algorithmic}
+% %\makeindex
+% %\renewcommand{\thetable}{\arabic{chapter}\Roman{table}}
+\usepackage{csquotes}
+\usepackage[brazilian]{babel}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RP}{\mathbb{RP}}
+
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mU}{\mathcal{U}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mR}{\mathcal{R}}
+
+\newcommand{\MS}{\mathscr{S}}
+\newcommand{\MU}{\mathscr{U}}
+\newcommand{\MF}{\mathscr{F}}
+\newcommand{\MG}{\mathscr{G}}
+\newcommand{\MP}{\mathscr{P}}
+\newcommand{\MQ}{\mathscr{Q}}
+\newcommand{\MR}{\mathscr{R}}
+
+\newcommand{\norm}[1]{{\| #1 \|}}
+\newcommand{\abs}[1]{{\vert #1 \vert}}
+
+\newcommand{\setaright}{\longrightarrow}
+\newcommand{\setaleft}{\longleftarrow}
+\newcommand{\se}{\Longleftarrow}
+\newcommand{\sose}{\Longrightarrow}
+\newcommand{\sesose}{\Longleftrightarrow}
+\newcommand{\setafunc}{\longrightarrow}
+\newcommand{\f}[2]{f:#1\longrightarrow #2}
+\newcommand{\fAB}{\f{A}{B}}
+\newcommand{\fXY}{\f{X}{Y}}
+\newcommand{\func}[3]{#1:#2\longrightarrow #3}
+\newcommand{\F}{\longrightarrow}
+
+\newcommand{\dv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dvu}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\dvv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\raio}{\sqrt{1 + f_x^2 + f_y^2 + f_z^2}}
+\newcommand{\ud}{\frac{1}{2}}
+\newcommand{\uq}{\frac{1}{4}}
+
+\newcommand{\Frac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\Frace}[2]{\Frac{\ #1\ }{\ #2\ }}
+
+\newcommand{\uu}[1]{\underline{#1}}
+
+\newcommand{\Dx}{\Delta x}
+\newcommand{\Dy}{\Delta y}
+\newcommand{\Dz}{\Delta z}
+\newcommand{\Posto}{\textrm{Posto}}
+\newcommand{\Hess}{\textrm{Hess}}
+\newcommand{\Det}{\textrm{Det}}
+
+\newcommand{\bct}{\begin{center}}
+\newcommand{\ect}{\end{center}}
+\newcommand{\bsld}{\begin{slide}}
+\newcommand{\esld}{\end{slide}}
+
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\pp}{\,}
+\newcommand{\CG}{Computação Gráfica}
+\newcommand{\Rdo}{$^{\underline{\textrm{o}}}$ }
+\newcommand{\Rda}{$^{\underline{\textrm{a}}}$ }
+
+\newcommand{\Ac}{\{\,} %% Abre conjunto
+\newcommand{\Fc}{\,\}} %% Fecha conjunto
+\newcommand{\Conj}[1]{\Ac #1 \Fc}
+
+\newtheorem{exemplo}{Exemplo}[chapter]
+\newtheorem{exercicio}{Exercício}[chapter]
+ \newtheorem{teorema}{Teorema}[chapter]
+ \newtheorem{definicao}{Definição}[chapter]
+ \newtheorem{observacao}{Observação}[chapter]
+ \newtheorem{problema}{Problema}[chapter]
+ \newtheorem{corolario}{Corolário}[chapter]
+ \newtheorem{proposicao}{Proposição}[chapter]
+ \newtheorem{lema}{Lema}[chapter]
+ \newcommand{\dsp}{\displaystyle}
+ \renewcommand{\thefootnote}{\alph{footnote}}
+
+
+\newcommand{\OBS}{\textbf{Observação: }}
+\newcommand{\lr}{L^2(\mathbb{R})}
+\newcommand{\Demo}{\textit{Demonstração: }}
+\newcommand{\fDemo}{$\Box$}
+
+\newcommand{\His}{\hspace*{\parindent}} %% Horizontal indent space
+\newcommand{\uHis}{\hspace*{1\parindent}}
+\newcommand{\dHis}{\hspace*{2\parindent}}
+\newcommand{\tHis}{\hspace*{3\parindent}}
+\newcommand{\qHis}{\hspace*{4\parindent}}
+\newcommand{\cHis}{\hspace*{5\parindent}}
+\newcommand{\fatPar}{0.5}
+\newcommand{\fatParEq}{0.7}
+
+\newcommand{\bb}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\makeatletter
+\@fleqnfalse
+\@mathmargin\@centering
+\makeatother
+
+\newcounter{Letra}
+\newcounter{letraTmp}
+\newcommand{\letraZero}{\setcounter{Letra}{0}}
+\newcommand{\Letra}[1]{\setcounter{Letra}{#1}}
+\newcommand{\letraTmp}[1]{\setcounter{letraTmp}{#1}}
+
+\newcommand{\boxEqSize}{6cm}
+\newcommand{\boxSize}[1]{\renewcommand{\boxEqSize}{#1}}
+
+\newcommand{\boxEqMat}[3]{\makebox[#1][l]{(#2) $#3$}}
+
+\newcommand{\itMatLet}[1]{
+\renewcommand{\theLetra}{\stepcounter{Letra}\alph{Letra}}
+\boxEqMat{\boxEqSize}{\theLetra}{#1}}
+
+\newcommand{\itMatNum}[1]{
+\renewcommand{\theLetra}{\stepcounter{Letra}\arabic{Letra}}
+\boxEqMat{\boxEqSize}{\theLetra}{#1}}
+
+
+\newcommand{\boxEqPot}[3]{\makebox[#1][l]{(#2) #3}}
+
+\newcommand{\itPotLet}[1]{
+\renewcommand{\theLetra}{\stepcounter{Letra}\alph{Letra}}
+\boxEqPot{\boxEqSize}{\theLetra}{#1}}
+
+\newcommand{\itPotNum}[1]{
+\renewcommand{\theLetra}{\stepcounter{Letra}\arabic{Letra}}
+\boxEqPot{\boxEqSize}{\theLetra}{#1}}
+
+
+\newcommand{\itLet}[1]{%% indexacao por letra
+\renewcommand{\theLetra}{\stepcounter{Letra}\alph{Letra}}
+(\theLetra) #1}
+
+\newcommand{\itNum}[1]{%% indexacao por numero
+\renewcommand{\theLetra}{\stepcounter{Letra}\arabic{Letra}}
+\theLetra ) #1}
+
+\newcommand{\boxEqMatSn}[2]{\makebox[#1][l]{$#2$}}
+\newcommand{\Mat}[1]{\boxEqMatSn{\boxEqSize}{#1}}
+
+\newcommand{\boxEqPotSn}[2]{\makebox[#1][l]{#2}}
+\newcommand{\Pot}[1]{\boxEqPotSn{\boxEqSize}{#1}}
+
+
+\newcommand{\Nm}[1]{\textnormal{#1}}
+\newcommand{\Nume}{\operatorname{n}}
+\newcommand{\Num}[1]{\Nume (#1)}
+
+\newcounter{numQuestao}
+\newenvironment{questoes}{
+\begin{list}
+{\arabic{numQuestao}- }
+{\usecounter{numQuestao}\setlength{\labelwidth}{0.6cm}\setlength{\labelsep}{0cm}%
+\setlength{\leftmargin}{0.6cm}}}
+{\end{list}}
+
+
+\newcommand{\tamBox}[1]
+{
+\boxSize{#1}
+\letraZero
+}
+\newcommand{\itemBox}[1]{\item\tamBox{#1}}
+\newcommand{\itemZero}{\letraZero\item}
+
+\newcommand{\Tq}{\,|\,}
+
+\newcommand{\newLet}{\letraTmp{\value{Letra}}\letraZero}
+\newcommand{\oldLet}{\Letra{\value{letraTmp}}}
+\newcommand{\comp}{\Nm{\footnotesize{$\circ$}}}
+
+\newcommand{\fmu}{f^{-1}}
+
+\usepackage{listings}
+
+
+
+\cftsetindents{chapter}{0em}{8em}
+\cftsetindents{section}{0em}{8em}
+\cftsetindents{subsection}{0em}{8Em}
+
+\addto\captionsbrazilian{
+  \renewcommand{\contentsname}%
+  {\hfill\textbf{\normalsize SUMÁRIO}\hfill}%
+}
+\addto\captionsbrazilian{
+  \renewcommand{\listfigurename}%
+  {\hfill\textbf{\normalsize LISTA DE FIGURAS}\hfill}%
+}
+\addto\captionsbrazilian{
+  \renewcommand{\listtablename}%
+  {\hfill\textbf{\normalsize LISTA DE TABELAS}\hfill}%
+}
+\addto\captionsbrazilian{
+  \renewcommand{\bibname}%
+  {\hfill\textbf{\normalsize REFERÊNCIAS}\hfill}%
+}
+\renewcommand{\cftchapfont}{\normalsize\bfseries}
+\renewcommand{\cftsecfont}{\footnotesize\bfseries}
+\renewcommand{\cftsubsecfont}{\footnotesize\itshape\bfseries}
+
+\renewcommand{\cftchappagefont}{\normalsize\bfseries}
+\renewcommand{\cftsecpagefont}{\normalsize\bfseries}
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftfigfont}{\normalsize}
+\renewcommand{\cfttabfont}{\normalsize}
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[block]
+{\normalsize\bfseries}
+{\normalsize\bfseries\thechapter}
+{12pt}
+{}
+\titleformat{\section}[block]
+{\normalsize\bfseries}
+{\normalsize\bfseries\thesection}
+{12pt}
+{}
+\titleformat{\subsection}[block]
+{\normalsize\bfseries\itshape}
+{\normalsize\bfseries\itshape\thesubsection}
+{12pt}
+{}
+
+
+
+\usepackage{chngcntr}  
+
+%\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{listing}{chapter}
+
+\setlength\cftbeforefigskip{10pt}
+\setlength\cftbeforetabskip{10pt}
+
+\renewcommand{\cftfigpresnum}{}
+\renewcommand{\cftfigaftersnum}{\hfill \texttwelveudash\;\;}
+
+\renewcommand{\cfttabpresnum}{Tabela \ }
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+6.5em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+6.5em}
+
+
+
+\newenvironment{citacao}% environment name
+{%
+  \vspace{0.5cm}%
+\begin{flushright}%
+    \singlespacing
+    \footnotesize%
+    \begin{minipage}{10cm}
+}{%
+    \end{minipage}%
+\end{flushright}\vspace{0.5cm}%
+}% end code
+
+
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0.5cm}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\parskip}{\bibitemsep}%
+  \setlength{\itemsep}{\bibparskip}%
+}
+\newcommand{\req}[1]{(\ref{#1})}
+
+\makeatletter
+\def\memph{\@memph}
+\def\@memph#1{%
+  \protect\leavevmode
+  \begingroup
+    \color{red}{\mathbf{#1}}%
+  \endgroup
+}
+\makeatother
+
+
