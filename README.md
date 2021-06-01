@@ -20,7 +20,7 @@ Caso não tenha familiaridade com a construção de documentos com LaTeX, o Inst
 
 Consideramos o Overleaf como o editor online e gratuito mais popular para LaTeX. Por isso, disponibilizamos o projeto deste repositório também na plataforma Overleaf:
 
-* https://www.overleaf.com/read/ytngnhrfhkdt
+* https://www.overleaf.com/latex/templates/modelo-de-monografia-da-ufrb/hjgqqgqpccqx
 
 ## Estrutura do projeto
 
